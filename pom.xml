@@ -98,6 +98,15 @@
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
 						<version>3.2.7</version>
+						<configuration>
+							<!--
+								Pure-Java signer: does not call gpg.exe (Git for Windows' gpg reports "2.4.7-unknown",
+								which the default signer cannot parse). It reads the exported secret key from
+								~/maven-signing-key.key (or the MAVEN_GPG_KEY env var) and the passphrase from
+								MAVEN_GPG_PASSPHRASE. The key file lives outside the project and is never committed.
+							-->
+							<signer>bc</signer>
+						</configuration>
 						<executions>
 							<execution>
 								<id>sign-artifacts</id>

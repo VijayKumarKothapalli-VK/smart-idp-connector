@@ -83,11 +83,11 @@ In Anypoint **Access Management → Connected Apps**, create an app that acts on
 
 A client-credentials app can't manage actions, prompts or review tasks. In IDP those are user permissions, not app scopes.
 
-### 2. Install and add the dependency
+### 2. Add the dependency
 
-```bash
-mvn clean install
-```
+The connector is published on **Maven Central**. Add it to your Mule application's `pom.xml` and Maven downloads it
+automatically, with no extra repository settings. In Anypoint Studio / Code Builder, **Smart IDP** then appears in
+the palette.
 
 ```xml
 <dependency>
@@ -97,6 +97,8 @@ mvn clean install
   <classifier>mule-plugin</classifier>
 </dependency>
 ```
+
+To build it from source instead: `mvn clean install` in this repository.
 
 ### 3. Configure
 
